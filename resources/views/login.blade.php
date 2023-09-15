@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="lgin-container">
+    <div class="login-container">
         <h2>Login</h2>
         <form action="">
             <input type="text" placeholder="Username">
