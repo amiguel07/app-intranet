@@ -19,6 +19,25 @@
         .brand-logo{
             background-color: white;
         }
+        .img-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px;
+            margin: 0;
+        }
+        .img-container:hover img {
+            filter: blur(3px);
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            transition: filter 0.3s ease;
+        }
     </style>
 </head>
 
@@ -136,12 +155,8 @@
                 </nav>
             </header>
             <!--  Header End -->
-            
-            <div class="container-fluid">
-                <div class="container">
-                    @yield('content')
-                </div>
-
+            <div class="container-fluid" style="width: 100%">
+                @yield('content')
             </div>
         </div>
 
