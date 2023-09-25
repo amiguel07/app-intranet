@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name', 'MAXTDES') }} - @yield('title')</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{{ URL::asset('#')}}" />
     <link rel="stylesheet" href="{{ URL::asset('/assets/css/styles.min.css') }}">
     <style>
@@ -14,6 +15,9 @@
             left: 0;
             right: 0;
             padding: 10px;
+        }
+        .brand-logo{
+            background-color: white;
         }
     </style>
 </head>
@@ -39,24 +43,12 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Área Personal</span>
+                    <span class="hide-menu">Área Personal - Alumnos</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('index') }}" aria-expanded="false">
-                        <span><i class="ti ti-layout-dashboard"></i></span>
+                        <span><i class="ti ti-certificate"></i></span>
                         <span class="hide-menu">Mis Cursos</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-layout-dashboard"></i></span>
-                        <span class="hide-menu">Mi Perfil</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-cards"></i></span>
-                        <span class="hide-menu">Calificaciones</span>
                     </a>
                 </li>
 
@@ -65,26 +57,26 @@
                     <span class="hide-menu">Administración</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-article"></i></span>
-                        <span class="hide-menu">Roles</span>
+                    <a class="sidebar-link" href="{{ route('roles_admin') }}" aria-expanded="false">
+                        <span><i class="ti ti-user-cog"></i></span>
+                        <span class="hide-menu">Roles de usuario</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-alert-circle"></i></span>
+                    <a class="sidebar-link" href="{{ route('cursos_admin') }}" aria-expanded="false">
+                        <span><i class="ti ti-certificate"></i></span>
                         <span class="hide-menu">Cursos</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-cards"></i></span>
+                    <a class="sidebar-link" href="{{ route('alumnos_admin') }}" aria-expanded="false">
+                        <span><i class="ti ti-school"></i></span>
                         <span class="hide-menu">Alumnos</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-file-description"></i></span>
+                    <a class="sidebar-link" href="{{ route('docentes_admin') }}" aria-expanded="false">
+                        <span><i class="ti ti-users"></i></span>
                         <span class="hide-menu">Docentes</span>
                     </a>
                 </li>
@@ -94,15 +86,9 @@
                     <span class="hide-menu">Área Personal - Docentes</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-login"></i></span>
+                    <a class="sidebar-link" href="{{ route('index') }}" aria-expanded="false">
+                        <span><i class="ti ti-certificate"></i></span>
                         <span class="hide-menu">Mis Cursos</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span><i class="ti ti-layout-dashboard"></i></span>
-                        <span class="hide-menu">Mi Perfil</span>
                     </a>
                 </li>
             </ul>
@@ -134,7 +120,7 @@
                                     <div class="message-body">
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
-                                            <p class="mb-0 fs-3">Perfil</p>
+                                            <p class="mb-0 fs-3">Mi Perfil</p>
                                         </a>
 
                                         <a href="{{ route('logout') }}" class="btn btn-outline-warning mx-3 mt-2 d-block" onclick="event.preventDefault();
@@ -156,13 +142,10 @@
                     @yield('content')
                 </div>
 
-                <div class="fixed-bottom-row">
-                    <div class="py-6 px-6 text-center">
-                        <p class="mb-0 fs-4">Design and Developed by Maxtdes S.A.C.</p>
-                    </div>
-                </div>
             </div>
         </div>
+
+        @yield('modals')
 
         <script src="{{ asset ('/assets/libs/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset ('/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -170,5 +153,6 @@
         <script src="{{ asset ('/assets/js/app.min.js') }}"></script>
         <script src="{{ asset ('/assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
         <script src="{{ asset ('/assets/libs/simplebar/dist/simplebar.js') }}"></script>
+        @yield('scripts')
 </body>
 </html>

@@ -13,13 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('auth.login');
+});
+
 Route::get('/home', function () {
     return view('roles.student.courses');
 });
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/roles_admin', function(){
+    return view('roles.admin.roles');
+})->name('roles_admin');
+
+Route::get('/cursos_admin', function(){
+    return view('roles.admin.courses');
+})->name('cursos_admin');
+
+Route::get('/alumnos_admin', function(){
+    return view('roles.admin.students');
+})->name('alumnos_admin');
+
+Route::get('/docentes_admin', function(){
+    return view('roles.admin.teachers');
+})->name('docentes_admin');
 
 Auth::routes();
 
